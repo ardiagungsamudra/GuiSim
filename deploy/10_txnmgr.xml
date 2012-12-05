@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<txnmgr class="org.jpos.transaction.TransactionManager" logger="Q2">
+  <property name="queue" value="TXNMGR" />
+  <property name="sessions" value="100" />
+  <property name="persistent-space" value="jdbm:txnmgr" />
+  <property name="debug" value="true" />
+  <property name="timeout" value="60000" />
+  <group name="group0">
+    <participant class="modules.id.ardi.participant.MTI0100Participant" looger="Q2" realm="group0" />
+  </group>
+  <participant class="modules.id.ardi.participant.SwitchParticipant" logger="Q2">
+    <property name="0100112233" value="group0 close" />
+  </participant>
+</txnmgr>
